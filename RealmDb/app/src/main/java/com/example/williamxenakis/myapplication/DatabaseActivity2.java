@@ -41,7 +41,7 @@ public class DatabaseActivity2 extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         final TextView text1 = (TextView) findViewById(R.id.textView1);
-        TextView text2 = (TextView) findViewById(R.id.textView2);
+        final TextView text2 = (TextView) findViewById(R.id.textView2);
 
        // Realm db
         personUUID = UUID.randomUUID().toString();
@@ -52,7 +52,7 @@ public class DatabaseActivity2 extends AppCompatActivity {
             @Override
             public void execute(Realm realm) {
                 RealmPerson person1 = realm.createObject(RealmPerson.class, personUUID);
-                person1.name = "Fidelity";
+                person1.name = "Inhuman";
                 person1.age  = 5;
                 person1.address = "1984 Happy Valley Rd, Lafayette, CA";
                 person1.jobSeekerId = "1231";
@@ -94,6 +94,7 @@ public class DatabaseActivity2 extends AppCompatActivity {
         else if(person.getMemberId().equals(people.get(0).getMemberId()) && person.getJobSeekerId().equals(people.get(0).getJobSeekerId())){
             isValidUser = true;
             text1.setText(people.get(0).getAddress());
+            text2.setText(people.get(0).getName());
         }
 
     }
